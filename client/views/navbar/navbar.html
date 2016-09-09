@@ -29,7 +29,7 @@
                             <i class="glyphicon glyphicon-th-list"></i><span class="m-l-10">Inbox</span></a>
                     </li>
                     <li>
-                        <a href="{{pathFor route='sent'}}">
+                        <a href="{{pathFor route='sentMail'}}">
                             <i class="glyphicon glyphicon-film"></i><span class="m-l-10">Sent Mail</span></a>
                     </li>
                     <li>
@@ -41,6 +41,11 @@
                         <div class="friendListHeader">My friend list</div>
                         <div class="form-group searchTextbox">
                             {{> inputAutocomplete settings=searchSettings id="searchUser" class="form-control" placeholder="Search"}}
+                        </div>
+                        <div class="friedList">
+                            {{#each friends}}
+                                <div class="friend">{{username}}</div>
+                            {{/each}}
                         </div>
                     </li>
                 </ul>

@@ -9,9 +9,50 @@ var isUserExist = function (array, user) {
     return isExist;
 };
 
-Template.navbar.helpers({
+Template.navbar.onCreated(function() {
+    this.existingFriend = new ReactiveVar();
+    this.friendList = new ReactiveVar();
+});
 
+Template.navbar.helpers({
+    friends: function(){
+        var friend = 0;
+        if(Meteor.user()){
+            friend = Friend.findOne();
+        }
+        if(friend)
+        {
+            return friend.friends;
+        }
+    },
     searchSettings: function() {
+        var array = [];
+        if(Meteor.user()) {
+            var friend = {};
+            if (!Template.instance().existingFriend.get()) {
+                friend = Friend.findOne();
+                Template.instance().existingFriend.set(friend);
+            } else {
+                friend = Template.instance().existingFriend.get();
+            }
+            if (friend) {
+                array = friend.friends;
+            }
+
+            Template.instance().friendList.set(array);
+
+            var filterUser = [];
+            for (var u in array) {
+                filterUser.push(array[u].username);
+            }
+
+            var localFriends = new Mongo.Collection(null);
+            Meteor.users.find({username: {$nin: filterUser}}).observe({
+                added: function (user) {
+                    localFriends.insert(user);
+                }
+            });
+        }
         return {
             position: "bottom",
             rules: [
@@ -31,7 +72,7 @@ Template.navbar.events({
         Meteor.logout();
         Router.go('/');
     },
-    'keyup #searchUser1': function (event, template) {
+    'keyup #searchUser': function (event, template) {
         event.preventDefault();
         var friend = template.existingFriend.get();
         var array = template.friendList.get();
@@ -39,7 +80,6 @@ Template.navbar.events({
             var user = $('#searchUser').val();
             var userExist = Meteor.users.find({username: user}).fetch();
             if(userExist && userExist.length > 0) {
-                console.log('user', user);
                 if (!friend) {
                     friend = {};
                     friend.createdBy = Meteor.user().username;
@@ -51,8 +91,9 @@ Template.navbar.events({
                                 friend._id = result;
                             }
                         });
-                        template.existingContact.set(contact);
+                        template.existingFriend.set(friend);
                         template.friendList.set(array);
+                        $('#searchUser').val('');
                     }
                 }else{
                     if (!isUserExist(array, user)) {
@@ -61,6 +102,7 @@ Template.navbar.events({
                         template.existingFriend.set(friend);
                         template.friendList.set(array);
                         Meteor.call('friend.update', friend);
+                        $('#searchUser').val('');
                     }
                 }
             }
