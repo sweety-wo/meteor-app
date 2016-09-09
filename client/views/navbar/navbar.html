@@ -10,6 +10,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand m-t-5 white-color" href="javascript:void(0);">Meteor E-talk</a>
+                <a class="userLogout" href="#">Logout</a>
             </div>
 
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
@@ -32,7 +33,8 @@
                             <i class="glyphicon glyphicon-file"></i><span class="m-l-10">Drafts</span></a>
                     </li>
                     <li>
-                        <div>My friend list</div>
+                        <hr class="m-l-15">
+                        <div class="friendListHeader">My friend list</div>
                         <div class="form-group searchTextbox">
                             {{> inputAutocomplete settings=searchSettings id="searchUser" class="form-control" placeholder="Search"}}
                         </div>
