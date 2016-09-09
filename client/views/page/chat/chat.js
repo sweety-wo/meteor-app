@@ -24,6 +24,8 @@ Template.chat.helpers({
 
                 ]}, {sort: {createdAt: 1}});
         }
+        var objDiv = document.getElementsByClassName("chatParent");
+        objDiv.scrollTop = objDiv.scrollHeight;
         return chat;
     }
 });
@@ -64,5 +66,3 @@ Template.chat.events({
         }
     }
 });
-
-
