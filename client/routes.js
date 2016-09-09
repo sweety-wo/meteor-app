@@ -2,7 +2,29 @@ Router.configure({
   layoutTemplate: 'layout',
   loadingTemplate: 'loading'
 });
-
+OnBeforeActions = {
+	loginRequired: function(pause) {
+		if (!Meteor.userId()) {
+			this.redirect('/');
+		}else {
+			this.next();
+		}
+	},
+	loginNotRequired: function(pause) {
+		if (Meteor.userId()) {
+			this.redirect('inbox');
+		}
+		else{
+			this.next();
+		}
+	}
+};
+Router.onBeforeAction(OnBeforeActions.loginRequired, {
+	only: ['inbox', 'drafts','sentMail','newMessage']
+});
+Router.onBeforeAction(OnBeforeActions.loginNotRequired, {
+	only: ['/', 'signUp']
+});
 Router.route('/', function () {
 	name: "login",
 		this.render('login',{
