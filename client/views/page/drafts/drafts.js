@@ -27,7 +27,6 @@ Template.drafts.helpers({
             showNavigation: 'never',
             fields: [
                 {key: 'to', label: 'Sent To', sortable: false, cellClass:addMessageRowClass},
-                {key: 'mail', label: 'mail', fn: function(value){ return '-';}, sortable: false, cellClass:addMessageRowClass},
                 {key: 'subject', label: 'Subjects', sortable: false,
                     fn: function(value, object){
                         var html =  '<strong>' +  object.subject + '</strong> - ' + UI._globalHelpers['textTruncate'](object.message, object.subject);

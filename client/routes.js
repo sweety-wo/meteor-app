@@ -23,9 +23,9 @@ Router.route('inbox', function () {
 		});
 });
 
-Router.route('sent', function () {
-	name: "sent",
-		this.render('sent',{
+Router.route('sentMail', function () {
+	name: "sentMail",
+		this.render('sentMail',{
 			to: "main"
 		});
 });
