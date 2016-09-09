@@ -225,14 +225,14 @@ h3 {
 
 /* Sidebar css starts */
 
-#wrapper {
+.wrapper, .loginWrapper {
   /*padding-left: 0;*/
   width: 100%;
 }
 
 #pageWrapper {
   max-width: 100%;
-  padding: 0;
+  /*padding: 0;*/
   background-color: #fff;
 }
 
