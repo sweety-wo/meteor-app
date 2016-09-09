@@ -1,0 +1,46 @@
+<template name="navbar">
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top nav-header" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle m-l-10 pull-left" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand m-t-5 white-color" href="javascript:void(0);">Meteor E-talk</a>
+            </div>
+
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav text-left">
+                    <li>
+                        <a href="{{pathFor route='newMessage'}}">
+                            <i class="glyphicon glyphicon-dashboard"></i><span class="m-l-10">New Message</span></a>
+                    </li>
+                    <li>
+                        <a href="{{pathFor route='inbox'}}">
+                            <i class="glyphicon glyphicon-th-list"></i><span class="m-l-10">Inbox</span></a>
+                    </li>
+                    <li>
+                        <a href="{{pathFor route='sent'}}">
+                            <i class="glyphicon glyphicon-film"></i><span class="m-l-10">Sent Mail</span></a>
+                    </li>
+                    <li>
+                        <a href="{{pathFor route='drafts'}}">
+                            <i class="glyphicon glyphicon-file"></i><span class="m-l-10">Drafts</span></a>
+                    </li>
+                    <li>
+                        <div class="form-group searchTextbox">
+                            {{> inputAutocomplete settings=searchSettings id="searchUser" class="form-control" placeholder="Search"}}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+    </div>
+
+
+</template>

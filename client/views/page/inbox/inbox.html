@@ -1,0 +1,11 @@
+<template name="inbox">
+    {{> navbar}}
+    <div id="pageWrapper">
+
+            {{#if bolts}}
+                {{> reactiveTable settings=setting collection=bolts multiColumnSort=false}}
+            {{else}}
+                <div class="notFound">No messages found...</div>
+            {{/if}}
+    </div>
+</template>
