@@ -28,11 +28,19 @@ Template.inbox.helpers({
                     },
                     cellClass:addMessageRowClass},
                 {key: 'createdAt', label: 'Received Date' ,headerClass :'dateColumn', fn: function(value){
-                    var html = '<div class="textAlignRight">' + UI._globalHelpers['formatDate'](value)+ '</div>'
+                    var html = '<div>' + UI._globalHelpers['formatDate'](value)+ '</div>'
                     return new Spacebars.SafeString(html);
                 },
                     sortable: false, cellClass:addMessageRowClass}
             ]
         }
     }
+});
+
+Template.inbox.events({
+    'click .reactive-table tbody tr': function (event) {
+        if (event.target.className === "messageRow") {
+            Router.go('inbox/:username/:_id', {username: this.username, _id: this._id});
+        }
+    },
 });

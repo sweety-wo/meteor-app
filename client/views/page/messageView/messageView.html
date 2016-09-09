@@ -1,0 +1,17 @@
+<template name="messageView">
+
+       <div id="pageWrapper">
+            {{#if mail}}
+                {{#with mail}}
+                    <div class="m-t-15"><strong>Subject : </strong >{{subject}}</div>
+                    <hr>
+                    <strong> From : </strong>{{from}}
+                    <span class="pull-right">{{messageDate createdAt}}</span>
+                    <div class="m-t-5"><strong>To : </strong >{{to}}</div>
+                    <div class="messageDisc"><strong>Message : </strong>{{message}}</div>
+                {{/with}}
+            {{else}}
+                <div>No message found</div>
+            {{/if}}
+        </div>
+</template>

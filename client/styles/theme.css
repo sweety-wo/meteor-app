@@ -10,6 +10,7 @@
   font-size: 30px;
 }
 
+
 .m-0{
   margin: 0 !important;
 }
@@ -124,11 +125,6 @@ h3 {
 }
 
 /*/!***** Top content *****!/*/
-
-.inner-bg {
-  padding: 100px 0 170px 0;
-}
-
 .form-box {
   margin-top: 35px;
 }
@@ -138,6 +134,10 @@ h3 {
   background: #eee;
   -moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;
   text-align: left;
+}
+
+div.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .sign-up-in-form form button.btn {
@@ -235,6 +235,7 @@ h3 {
 .nav-header{
   background-color: #31b0d5;
   height: 58px;
+  box-shadow: 1px 1px 1px #999;
 }
 
 .navbar-default .navbar-toggle .icon-bar{
@@ -251,48 +252,6 @@ h3 {
   background-color: transparent !important;
 }
 
-.top-nav {
-  padding: 0 15px;
-}
-
-.top-nav>li {
-  display: inline-block;
-  float: left;
-}
-
-.top-nav>li>a {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  line-height: 20px;
-  color: #999;
-}
-
-.top-nav>li>a:hover,
-.top-nav>li>a:focus,
-.top-nav>.open>a,
-.top-nav>.open>a:hover,
-.top-nav>.open>a:focus {
-  color: #fff;
-  background-color: #000;
-}
-
-.top-nav>.open>.dropdown-menu {
-  float: left;
-  position: absolute;
-  margin-top: 0;
-  border: 1px solid rgba(0,0,0,.15);
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  background-color: #fff;
-  -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
-  box-shadow: 0 6px 12px rgba(0,0,0,.175);
-}
-
-.top-nav>.open>.dropdown-menu>li>a {
-  white-space: normal;
-}
-
-
 .side-nav>li>ul {
   padding: 0;
 }
@@ -307,7 +266,6 @@ h3 {
 .side-nav>li>ul>li>a:hover {
   color: #fff;
 }
-
 
 .active > a{
   background-color: #000;
@@ -329,7 +287,7 @@ h3 {
   font-weight: bold;
 }
 
-.friedList{
+.friendList{
   color: #777777;
   margin-left: 20px;
   font-size: 15px;
@@ -339,9 +297,16 @@ h3 {
   margin-top: 10px;
   cursor: pointer;
 }
-/* Sidebar css ends */
 
-.notFound{
+.navbar-default .navbar-nav > .active > a{
+  background-color :#31b0d5;
+}
+/* Sidebar css ends */
+.sendButton{
+  background: #31b0d5;
+}
+
+.notFoundMessage{
   width: 100%;
   text-align: center;
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -418,3 +383,11 @@ h3 {
   margin-left: -15px;
 }
 /* End Chat css */
+
+/* Start css for message view */
+.messageDisc{
+  text-align: justify;
+  margin-top: 20px;
+}
+/* End css for message view */
+

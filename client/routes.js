@@ -40,6 +40,18 @@ Router.route('inbox', function () {
 		});
 });
 
+Router.route('inbox/:username/:_id', function () {
+	this.render('messageView',{
+		to: "main",
+		data: function() {
+			return {
+				username: this.params.username,
+				_id: this.params._id
+			}
+		}
+	});
+});
+
 Router.route('sentMail', function () {
 	name: "sentMail",
 		this.render('sentMail',{
