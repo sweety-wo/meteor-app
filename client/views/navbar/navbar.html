@@ -14,7 +14,8 @@
                 </div>
             </div>
             <div class="nav navbar-nav navbar-right">
-                <a href="#" class="navbar-brand m-r-30 white-color userLogout"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                <a href="#" class="navbar-brand m-r-30 m-t-2 white-color userLogout">
+                    <span class="glyphicon glyphicon-log-out"></span> Logout</a>
             </div>
             {{#if currentUser}}
             <div class="nav navbar-nav navbar-right">
@@ -30,8 +31,8 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav text-left">
                     <li>
-                        <a href="{{pathFor route='newMessage'}}" >
-                            <i class="glyphicon glyphicon-dashboard"></i><span class="m-l-10">New Message</span></a>
+                        <a href="{{pathFor route='newMessage'}}">
+                            <i class="glyphicon glyphicon-edit"></i><span class="m-l-10">New Message</span></a>
                     </li>
                     <li class="{{#if isInbox}}active{{/if}}">
                         <a href="{{pathFor route='inbox'}}">
@@ -39,7 +40,7 @@
                     </li>
                     <li>
                         <a href="{{pathFor route='sentMail'}}">
-                            <i class="glyphicon glyphicon-film"></i><span class="m-l-10">Sent Mail</span></a>
+                            <i class="glyphicon glyphicon-check"></i><span class="m-l-10">Sent Mail</span></a>
                     </li>
                     <li>
                         <a href="{{pathFor route='drafts'}}">
