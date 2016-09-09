@@ -1,3 +1,6 @@
 Meteor.publish('friend', function() {
-  return Friend.find();
-})
+  var currentUser = Meteor.users.findOne(this.userId);
+  if(currentUser) {
+    return Friend.find({createdBy: currentUser.username});
+  }
+});

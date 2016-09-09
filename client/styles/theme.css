@@ -347,6 +347,18 @@ h3 {
   color: #777777;
   margin-left: 15px;
   font-size: 18px;
+  font-weight: bold;
+}
+
+.friedList{
+  color: #777777;
+  margin-left: 20px;
+  font-size: 15px;
+}
+
+.friend{
+  margin-top: 10px;
+  cursor: pointer;
 }
 /* Sidebar css ends */
 

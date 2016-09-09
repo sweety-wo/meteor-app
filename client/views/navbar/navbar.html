@@ -38,6 +38,11 @@
                         <div class="form-group searchTextbox">
                             {{> inputAutocomplete settings=searchSettings id="searchUser" class="form-control" placeholder="Search"}}
                         </div>
+                        <div class="friedList">
+                            {{#each friends}}
+                                <div class="friend">{{username}}</div>
+                            {{/each}}
+                        </div>
                     </li>
                 </ul>
             </div>
