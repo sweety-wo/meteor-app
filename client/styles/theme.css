@@ -6,12 +6,20 @@
   outline: none;
 }
 
+.app-title{
+  font-size: 30px;
+}
+
 .m-0{
   margin: 0 !important;
 }
 
 .m-t-0{
   margin-top: 0 !important;
+}
+
+.m-t-2 {
+  margin-top: 2px !important;
 }
 
 .m-t-5 {
@@ -97,18 +105,6 @@
 hr{
   border-top: 1px solid #dddddd;
 }
-/*#de995e*/
-
-
-strong { font-weight: 500; }
-
-/*a, a:hover, a:focus {*/
-/*color: #de995e;*/
-/*text-decoration: none;*/
-/*-o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;*/
-/*}*/
-
-
 
 /* Login css starts*/
 
