@@ -62,6 +62,10 @@
   margin-right: 15px !important;
 }
 
+.m-r-30{
+  margin-right: 30px !important;
+}
+
 .m-b-0{
   margin-bottom: 0 !important;
 }
@@ -76,6 +80,14 @@
 
 .m-b-15{
   margin-bottom: 15px !important;
+}
+
+.p-0{
+  padding: 0 !important;
+}
+
+.p-5{
+  padding: 5px !important;
 }
 
 .p-l-0{
@@ -228,7 +240,7 @@ h3 {
 
 .nav-header{
   background-color: #31b0d5;
-  height: 57px;
+  height: 58px;
 }
 
 .navbar-default .navbar-toggle .icon-bar{
