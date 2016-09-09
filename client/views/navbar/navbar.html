@@ -14,8 +14,17 @@
                 </div>
             </div>
             <div class="nav navbar-nav navbar-right">
-                <a href="#" class="navbar-brand m-r-30 m-t-2 white-color userLogout"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                <a href="#" class="navbar-brand m-r-30 white-color userLogout"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
             </div>
+            {{#if currentUser}}
+            <div class="nav navbar-nav navbar-right">
+                <div href="#" class="navbar-brand white-color m-t-2">
+                    {{#if currentUser.username}}
+                        {{currentUser.username}}
+                    {{/if}}
+                </div>
+            </div>
+            {{/if}}
 
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
