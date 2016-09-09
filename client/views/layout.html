@@ -8,10 +8,16 @@
 </body>
 
 <template name="layout">
-    <div id="wrapper">
+
     {{#if currentUser }}
-        {{> navbar}}
+        <div class="wrapper">
+            {{> navbar}}
+            {{> yield "main"}}
+        </div>
+    {{else}}
+        <div class="loginWrapper">
+            {{> yield "main"}}
+        </div>
     {{/if}}
-        {{> yield "main"}}
-    </div>
+
 </template>
