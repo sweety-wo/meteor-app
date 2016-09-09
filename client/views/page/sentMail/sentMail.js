@@ -29,7 +29,7 @@ Template.sentMail.helpers({
                     },
                     cellClass:addMessageRowClass},
                 {key: 'createdAt', label: 'Sent Date', headerClass :'dateColumn', fn: function(value){
-                    var html = '<div class="textAlignRight">' + UI._globalHelpers['formatDate'](value)+ '</div>';
+                    var html = '<div>' + UI._globalHelpers['formatDate'](value)+ '</div>';
                     return new Spacebars.SafeString(html);
                 },
                     sortable: false, cellClass:addMessageRowClass}

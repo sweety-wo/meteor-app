@@ -30,10 +30,10 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav text-left">
                     <li>
-                        <a href="{{pathFor route='newMessage'}}">
+                        <a href="{{pathFor route='newMessage'}}" >
                             <i class="glyphicon glyphicon-dashboard"></i><span class="m-l-10">New Message</span></a>
                     </li>
-                    <li>
+                    <li class="{{#if isInbox}}active{{/if}}">
                         <a href="{{pathFor route='inbox'}}">
                             <i class="glyphicon glyphicon-envelope"></i><span class="m-l-10">Inbox</span></a>
                     </li>
@@ -51,7 +51,7 @@
                         <div class="form-group searchTextbox">
                             {{> inputAutocomplete settings=searchSettings id="searchUser" class="form-control" placeholder="Search"}}
                         </div>
-                        <div class="friedList">
+                        <div class="friendList">
                             {{#each friends}}
                                 <div class="friend">{{username}}</div>
                             {{/each}}

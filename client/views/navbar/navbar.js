@@ -15,6 +15,14 @@ Template.navbar.onCreated(function() {
 });
 
 Template.navbar.helpers({
+    isInbox: function () {
+        if(Iron.Location.get().path.indexOf('inbox') > -1){
+            return true;
+        }else {
+            return false;
+        }
+    },
+
     friends: function(){
         var friend = 0;
         if(Meteor.user()){
@@ -49,7 +57,9 @@ Template.navbar.helpers({
             var localFriends = new Mongo.Collection(null);
             Meteor.users.find({username: {$nin: filterUser}}).observe({
                 added: function (user) {
-                    localFriends.insert(user);
+                    if(Meteor.user().username != user.username) {
+                        localFriends.insert(user);
+                    }
                 }
             });
         }
@@ -57,7 +67,7 @@ Template.navbar.helpers({
             position: "bottom",
             rules: [
                 {
-                    collection:Meteor.users,
+                    collection:localFriends,
                     field: "username",
                     template: Template.usernameAutoComplete
                 }
