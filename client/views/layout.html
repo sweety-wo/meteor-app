@@ -8,5 +8,8 @@
 </body>
 
 <template name="layout">
-  {{> yield "main"}}
+    <div id="wrapper">
+        {{> navbar}}
+        {{> yield "main"}}
+    </div>
 </template>

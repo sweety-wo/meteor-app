@@ -1,11 +1,10 @@
-<template name="inbox">
-    <!--{{> navbar}}-->
-    <div id="pageWrapper">
-
+<template name="drafts">
+        <!--{{> navbar}}-->
+        <div id="pageWrapper">
             {{#if mail}}
                 {{> reactiveTable settings=setting collection=mail multiColumnSort=false}}
             {{else}}
-                <div class="notFound">No messages found....</div>
+                <div class="notFound">No messages found...</div>
             {{/if}}
-    </div>
+        </div>
 </template>
