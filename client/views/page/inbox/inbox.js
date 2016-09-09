@@ -1,4 +1,19 @@
 Template.inbox.helpers({
+
+    mail: function(){
+        var mail = [];
+        var count = Mail.find({to: {
+            $regex : new RegExp(this.username, "i") }, isDraft : false}).count();
+        if(count  > 0) {
+            mail = Mail.find({
+                to: {
+                    $regex: new RegExp(this.username, "i")
+                },
+                isDraft : false
+            }, {sort: {createdAt: -1}});
+        }
+        return mail;
+    },
     setting: function() {
         return {
             showFilter: false,
