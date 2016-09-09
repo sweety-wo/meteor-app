@@ -27,7 +27,7 @@ Template.drafts.helpers({
             showNavigation: 'never',
             fields: [
                 {key: 'to', label: 'Sent To', sortable: false, cellClass:addMessageRowClass},
-                {key: 'subject', label: 'Subjects', sortable: false,
+                {key: 'subject', label: 'Subject', sortable: false,
                     fn: function(value, object){
                         var html =  '<strong>' +  object.subject + '</strong> - ' + UI._globalHelpers['textTruncate'](object.message, object.subject);
                         return new Spacebars.SafeString(html);

@@ -38,3 +38,12 @@ Template.sentMail.helpers({
     }
 });
 
+Template.sentMail.events({
+    'click .reactive-table tbody tr':function(event){
+        if(event.target.className === "messageRow") {
+            Router.go('inbox/:username/:_id', {username: this.username, _id: this._id});
+        }
+    },
+
+});
+
