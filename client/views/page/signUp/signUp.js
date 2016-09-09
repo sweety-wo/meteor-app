@@ -14,25 +14,28 @@ Template.signUp.events({
         var userName = event.target.userName.value;
         var emailVar = event.target.registerEmail.value;
         var passwordVar = event.target.registerPassword.value;
-
-        if(!Template.instance().userExists.get()) {
-            Accounts.createUser({
-                username: userName,
-                email: emailVar,
-                password: passwordVar
-            }, function (err) {
-                if (err) {
-                    toastr.error('Sign up failed: ' + err.reason);
-                } else {
-                    toastr.success('You have signed up successfully.');
-                    Meteor.loginWithPassword(emailVar, passwordVar);
-                    Router.go('inbox');
-                }
-            });
-        }else {
-            toastr.error('Username already registered.');
+        if(userName && emailVar && passwordVar ) {
+            if (!Template.instance().userExists.get()) {
+                Accounts.createUser({
+                    username: userName,
+                    email: emailVar,
+                    password: passwordVar
+                }, function (err) {
+                    if (err) {
+                        toastr.error('Sign up failed: ' + err.reason);
+                    } else {
+                        toastr.success('You have signed up successfully.');
+                        Meteor.loginWithPassword(emailVar, passwordVar);
+                        Router.go('inbox');
+                    }
+                });
+            } else {
+                toastr.error('Username already registered.');
+            }
         }
-
+        else{
+            toastr.error("Please enter all information");
+        }
     },
     'blur .username': function(event, template){
         if(!$('.username').hasClass("error")) {
