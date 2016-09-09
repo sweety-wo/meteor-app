@@ -36,3 +36,11 @@ Template.inbox.helpers({
         }
     }
 });
+
+Template.inbox.events({
+    'click .reactive-table tbody tr': function (event) {
+        if (event.target.className === "messageRow") {
+            Router.go('inbox/:username/:_id', {username: this.username, _id: this._id});
+        }
+    },
+});
