@@ -25,12 +25,7 @@ Router.onBeforeAction(OnBeforeActions.loginRequired, {
 Router.onBeforeAction(OnBeforeActions.loginNotRequired, {
 	only: ['/', 'signUp']
 });
-Router.route('/', function () {
-	name: "login",
-		this.render('login',{
-			to: "main"
-		});
-});
+
 Router.route('signUp', function () {
 	name: "signUp",
 		this.render('signUp',{
@@ -77,6 +72,31 @@ Router.route('newMessage', function () {
 			to: "main"
 		});
 });
+
+Router.route('chat/:username', function () {
+	this.render('chat',{
+		to: "main",
+		data: function() {
+			return {
+				username: this.params.username
+			}
+		}
+	});
+});
+
+Router.route('/', function () {
+	name: "login",
+	this.render('login',{
+		to: "main"
+	});
+});
+
+Router.route('/(.*)', {
+	action: function() {
+		Router.go('/');
+	}
+});
+
 /*
 MainController = RouteController.extend({
   action: function() {

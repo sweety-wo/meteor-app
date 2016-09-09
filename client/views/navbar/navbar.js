@@ -82,6 +82,11 @@ Template.navbar.events({
         Meteor.logout();
         Router.go('/');
     },
+    'click .friend': function (event) {
+        event.preventDefault();
+        console.log('to', this.username);
+        Router.go('chat/:username', {username: this.username});
+    },
     'keyup #searchUser': function (event, template) {
         event.preventDefault();
         var friend = template.existingFriend.get();
