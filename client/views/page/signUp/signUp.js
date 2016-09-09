@@ -41,5 +41,8 @@ Template.signUp.events({
             });
             template.userExists.set(userExists);
         }
+    },
+    'click .linkLogin': function() {
+        Router.go('/');
     }
 });
