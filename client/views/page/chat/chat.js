@@ -29,6 +29,24 @@ Template.chat.helpers({
 });
 
 Template.chat.events({
+    'keyup #chatInput': function (event) {
+        if(event.keyCode === 13) {
+            var msg = $('#chatInput').val();
+            if (msg) {
+                var chat = {};
+                chat.from = Meteor.user().username;
+                chat.to = Router.current().params.username;
+                chat.message = msg;
+                chat.createdAt = new Date();
+                Meteor.call('chat.insert', chat, function (err, result) {
+                    if (result) {
+                        chat._id = result;
+                        $('#chatInput').val('');
+                    }
+                });
+            }
+        }
+    },
     'click .sendChat': function (event) {
         var msg = $('#chatInput').val();
         if(msg) {
@@ -40,6 +58,7 @@ Template.chat.events({
             Meteor.call('chat.insert', chat, function(err, result){
                 if (result){
                     chat._id = result;
+                    $('#chatInput').val('');
                 }
             });
         }
