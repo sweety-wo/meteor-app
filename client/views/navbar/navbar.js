@@ -53,15 +53,15 @@ Template.navbar.helpers({
             });
         }
         return {
-            position: "bottom",
+            position: 'bottom',
             rules: [
                 {
                     collection:localFriends,
-                    field: "username",
+                    field: 'username',
                     template: Template.usernameAutoComplete
                 }
             ]
-        }
+        };
     }
 });
 

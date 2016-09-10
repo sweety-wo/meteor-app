@@ -34,11 +34,11 @@ Template.signUp.events({
             }
         }
         else{
-            toastr.error("Please enter all information");
+            toastr.error('Please enter all information');
         }
     },
     'blur .username': function(event, template){
-        if(!$('.username').hasClass("error")) {
+        if(!$('.username').hasClass('error')) {
             let userExists = !!Meteor.users.findOne({
                 username: event.target.value
             });

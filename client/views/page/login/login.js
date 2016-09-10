@@ -21,7 +21,7 @@ Template.login.events({
 
       });
     }else{
-      toastr.error("Please enter all information")
+      toastr.error('Please enter all information');
     }
   }
 });

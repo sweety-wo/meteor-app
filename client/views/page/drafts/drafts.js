@@ -1,5 +1,5 @@
 let addMessageRowClass = function () {
-    return "messageRow";
+    return 'messageRow';
 };
 
 Template.drafts.helpers({
@@ -11,7 +11,7 @@ Template.drafts.helpers({
         }
 
         let filter = {};
-        filter.from = {$regex: new RegExp("^" + username, "i")};
+        filter.from = {$regex: new RegExp('^' + username, 'i')};
         filter.isDraft = true;
 
         let count = Mail.find(filter).count();
@@ -34,18 +34,18 @@ Template.drafts.helpers({
                     },
                     cellClass:addMessageRowClass},
                 {key: 'createdAt', label: 'Draft Date' ,headerClass :'dateColumn', fn: function(value){
-                    let html = '<div>' + UI._globalHelpers['formatDate'](value)+ '</div>'
+                    let html = '<div>' + UI._globalHelpers['formatDate'](value)+ '</div>';
                     return new Spacebars.SafeString(html);
                 },
                     sortable: false, cellClass:addMessageRowClass}
             ]
-        }
+        };
     }
 });
 
 Template.drafts.events({
     'click .reactive-table tbody tr':function(event){
-        if(event.target.className === "messageRow") {
+        if(event.target.className === 'messageRow') {
             event.preventDefault();
             this.fromPage = 'draft';
             LocalCollection.insert(this);

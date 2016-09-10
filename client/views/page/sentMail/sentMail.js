@@ -1,5 +1,5 @@
 let addMessageRowClass = function () {
-    return "messageRow";
+    return 'messageRow';
 };
 
 Template.sentMail.helpers({
@@ -33,13 +33,13 @@ Template.sentMail.helpers({
                 },
                     sortable: false, cellClass:addMessageRowClass}
             ]
-        }
+        };
     }
 });
 
 Template.sentMail.events({
     'click .reactive-table tbody tr':function(event){
-        if(event.target.className === "messageRow") {
+        if(event.target.className === 'messageRow') {
             Router.go('inbox/:username/:_id', {username: this.username, _id: this._id});
         }
     }

@@ -1,4 +1,4 @@
-#REQUIRE
+#Require
 Meteor Installed
 
 #Run

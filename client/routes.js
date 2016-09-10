@@ -30,68 +30,68 @@ Router.onBeforeAction(OnBeforeActions.loginNotRequired, {
 });
 
 Router.route('signUp', function () {
-	name: "signUp",
+	name: 'signUp',
 		this.render('signUp',{
-			to: "main"
+			to: 'main'
 		});
 });
 
 Router.route('inbox', function () {
-	name: "inbox",
+	name: 'inbox',
 		this.render('inbox',{
-			to: "main"
+			to: 'main'
 		});
 });
 
 Router.route('inbox/:username/:_id', function () {
 	this.render('messageView',{
-		to: "main",
+		to: 'main',
 		data: function() {
 			return {
 				username: this.params.username,
 				_id: this.params._id
-			}
+			};
 		}
 	});
 });
 
 Router.route('sentMail', function () {
-	name: "sentMail",
+	name: 'sentMail',
 		this.render('sentMail',{
-			to: "main"
+			to: 'main'
 		});
 });
 
 Router.route('drafts', function () {
-	name: "drafts",
+	name: 'drafts',
 		this.render('drafts',{
-			to: "main"
+			to: 'main'
 		});
 });
 
 Router.route('newMessage', function () {
-	name: "newMessage",
+	name: 'newMessage',
 		this.render('newMessage',{
-			to: "main"
+			to: 'main'
 		});
 });
 
 Router.route('chat/:username', function () {
-	name: "chat",
+	name: 'chat',
 	this.render('chat',{
-		to: "main",
+		to: 'main',
 		data: function() {
 			return {
 				username: this.params.username
-			}
+			};
 		}
 	});
 });
 
 Router.route('login', function () {
-	name: "login",
+	name: 'login',
 	this.render('login',{
-		to: "main"
+		to: 'main'
 	});
 });
 

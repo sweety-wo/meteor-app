@@ -3,7 +3,7 @@ let setMailObj = function() {
     if(Meteor.user() && Meteor.user().username) {
         mail.from = Meteor.user().username;
     }else{
-        mail.from = 'Anonymous'
+        mail.from = 'Anonymous';
     }
     if($('#msgTo').val()) {
         mail.to = $('#msgTo').val();
@@ -20,11 +20,11 @@ let addToDraft = function(){
     mail.isDraft = true;
 
     if(!Session.get('draftMailId')) {
-        Meteor.call("mail.insert", mail, function (err, result) {
+        Meteor.call('mail.insert', mail, function (err, result) {
             Session.set('draftMailId',result);
         });
     }else {
-        Meteor.call("mail.update", mail, Session.get('draftMailId'));
+        Meteor.call('mail.update', mail, Session.get('draftMailId'));
     }
 };
 
@@ -51,15 +51,15 @@ Template.newMessage.rendered = function () {
 Template.newMessage.helpers({
     searchSettings: function() {
         return {
-            position: "bottom",
+            position: 'bottom',
             rules: [
                 {
                     collection:Meteor.users,
-                    field: "username",
+                    field: 'username',
                     template: Template.usernameAutoComplete
                 }
             ]
-        }
+        };
     }
 });
 
@@ -72,12 +72,12 @@ Template.newMessage.events({
         if(!Session.get('draftMailId')) {
             mail.isDraft = false;
             Session.set('draftMailId',undefined);
-            Meteor.call("mail.insert", mail, function (err, result) {
+            Meteor.call('mail.insert', mail, function (err, result) {
                 Session.set('draftMailId',result);
             });
         }else {
             mail.isDraft = false;
-            Meteor.call("mail.update", mail, Session.get('draftMailId'));
+            Meteor.call('mail.update', mail, Session.get('draftMailId'));
             Session.set('draftMailId',undefined);
         }
         $('#msgTo').val('');

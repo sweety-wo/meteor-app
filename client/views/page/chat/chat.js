@@ -2,7 +2,7 @@ let isNotCurrentUser = function(){
     if(Router.current().params.username === Meteor.user().username) {
         return false;
     }else{
-        return true
+        return true;
     }
 };
 
@@ -24,7 +24,7 @@ Template.chat.helpers({
 
                 ]}, {sort: {createdAt: 1}});
         }
-        var objDiv = document.getElementsByClassName("chatParent");
+        var objDiv = document.getElementsByClassName('chatParent');
         objDiv.scrollTop = objDiv.scrollHeight;
         return chat;
     }

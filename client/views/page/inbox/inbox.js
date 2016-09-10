@@ -1,5 +1,5 @@
 let addMessageRowClass = function () {
-    return "messageRow";
+    return 'messageRow';
 };
 
 Template.inbox.helpers({
@@ -27,18 +27,18 @@ Template.inbox.helpers({
                     },
                     cellClass:addMessageRowClass},
                 {key: 'createdAt', label: 'Received Date' ,headerClass :'dateColumn', fn: function(value){
-                    let html = '<div>' + UI._globalHelpers['formatDate'](value)+ '</div>'
+                    let html = '<div>' + UI._globalHelpers['formatDate'](value)+ '</div>';
                     return new Spacebars.SafeString(html);
                 },
                     sortable: false, cellClass:addMessageRowClass}
             ]
-        }
+        };
     }
 });
 
 Template.inbox.events({
     'click .reactive-table tbody tr': function (event) {
-        if (event.target.className === "messageRow") {
+        if (event.target.className === 'messageRow') {
             Router.go('inbox/:username/:_id', {username: this.username, _id: this._id});
         }
     }
