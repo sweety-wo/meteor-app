@@ -1,11 +1,4 @@
-.outline-none{
-  outline: none;
-}
-
-.app-title{
-  font-size: 30px;
-}
-
+/* START: Common CSS */
 html{
   overflow: hidden;
 }
@@ -14,6 +7,31 @@ div{
   cursor: default;
 }
 
+hr{
+  border-top: 1px solid #dddddd;
+}
+
+.sendButton{
+  background: #31b0d5;
+}
+
+.notFoundMessage{
+  width: 100%;
+  text-align: center;
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #31b0d5;
+  margin: auto 0;
+  line-height: 90px;
+}
+
+.reactive-table tr{
+  cursor: pointer;
+}
+/* END : Common CSS */
+
+/* START: Global CSS*/
 .m-0{
   margin: 0 !important;
 }
@@ -105,13 +123,9 @@ div{
 .p-l-0{
   padding-left: 0 !important;
 }
+/* END: Global CSS*/
 
-hr{
-  border-top: 1px solid #dddddd;
-}
-
-/* Login css starts*/
-
+/*START: Login-SignUp css starts*/
 h1, h2 {
   margin-top: 10px;
   font-size: 38px;
@@ -127,7 +141,6 @@ h3 {
   line-height: 30px;
 }
 
-/*/!***** Top content *****!/*/
 .form-box {
   margin-top: 35px;
 }
@@ -219,11 +232,9 @@ div.card {
   background: #31b0d5;
   color: #fff;
 }
+/* END: Login-SignUp css starts */
 
-/*Login css ends*/
-
-/* Sidebar css starts */
-
+/* START: Sidebar css starts */
 .wrapper, .loginWrapper {
   width: 100%;
 }
@@ -256,6 +267,10 @@ div.card {
 
 .navbar-toggle:hover {
   background-color: transparent !important;
+}
+
+.app-title{
+  font-size: 30px;
 }
 
 .side-nav>li>ul {
@@ -307,23 +322,9 @@ div.card {
 .navbar-default .navbar-nav > .active > a{
   background-color :#80cde5;
 }
-/* Sidebar css ends */
-.sendButton{
-  background: #31b0d5;
-}
+/* END: Sidebar css ends */
 
-.notFoundMessage{
-  width: 100%;
-  text-align: center;
-  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 18px;
-  font-weight: bold;
-  color: #31b0d5;
-  margin: auto 0;
-  line-height: 90px;
-}
-
-/* Chat css */
+/* START: Chat css */
 .chatParent{
   position: absolute;
   width: calc(100% - 235px);
@@ -346,17 +347,10 @@ div.card {
   border-bottom: 1px dotted #B3A9A9;
 }
 
-/*.chat li.left .chat-body*/
-/*{*/
-  /*margin-left: 60px;*/
-/*}*/
-
 .chat li.right .chat-body p
 {
-  /*margin-right: 60px;*/
   text-align: end;
 }
-
 
 .chat li .chat-body p
 {
@@ -393,15 +387,15 @@ div.card {
 
 .panel-footer{
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
   margin-left: -25px;
 }
-/* End Chat css */
+/* END: Chat css */
 
-/* Start css for message view */
+/* START: css for message view */
 .messageDisc{
   text-align: justify;
   margin-top: 20px;
 }
-/* End css for message view */
+/* END: css for message view */
 
