@@ -12,7 +12,7 @@ Template.navbar.helpers({
         }
     },
     friends: function(){
-        let friend = 0;
+        let friend = await(0);
         if(Meteor.user()){
             friend = Friend.findOne();
         }
