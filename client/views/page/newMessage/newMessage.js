@@ -1,5 +1,5 @@
-var setMailObj = function() {
-    var mail = {};
+let setMailObj = function() {
+    let mail = {};
     if(Meteor.user() && Meteor.user().username) {
         mail.from = Meteor.user().username;
     }else{
@@ -14,8 +14,9 @@ var setMailObj = function() {
     mail.message = $('#message').val();
     return mail;
 };
-var addToDraft = function(){
-    var mail = setMailObj();
+
+let addToDraft = function(){
+    let mail = setMailObj();
     mail.isDraft = true;
 
     if(!Session.get('draftMailId')) {
@@ -27,13 +28,11 @@ var addToDraft = function(){
     }
 };
 
-
 Template.newMessage.rendered = function () {
-
-    var toVal = '', subjectVal = '', messageVal = '', mailId = '';
+    let toVal = '', subjectVal = '', messageVal = '', mailId = '';
     Session.set('draftMailId',undefined);
     if(LocalCollection.find().count() > 0) {
-        var sentTo = LocalCollection.find().fetch();
+        let sentTo = LocalCollection.find().fetch();
         toVal = sentTo[0].to;
         subjectVal = sentTo[0].subject;
         messageVal = sentTo[0].message;
@@ -49,9 +48,7 @@ Template.newMessage.rendered = function () {
     }
 };
 
-
 Template.newMessage.helpers({
-
     searchSettings: function() {
         return {
             position: "bottom",
@@ -71,7 +68,7 @@ Template.newMessage.events({
         addToDraft();
     },
     'click .btnSend': function(event, template){
-        var mail = setMailObj();
+        let mail = setMailObj();
         if(!Session.get('draftMailId')) {
             mail.isDraft = false;
             Session.set('draftMailId',undefined);

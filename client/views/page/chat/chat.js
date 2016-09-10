@@ -1,4 +1,4 @@
-var isNotCurrentUser = function(){
+let isNotCurrentUser = function(){
     if(Router.current().params.username === Meteor.user().username) {
         return false;
     }else{
@@ -8,19 +8,19 @@ var isNotCurrentUser = function(){
 
 Template.chat.helpers({
     chat: function(){
-        var toUser = Router.current().params.username;
-        var chat = [];
-        var count = Chat.find({
+        let toUser = Router.current().params.username;
+        let chat = [];
+        let count = Chat.find({
             $or:[
-            {$and:[{from: Meteor.user().username},{to:Router.current().params.username}]},
-            {$and:[{to: Meteor.user().username},{from:Router.current().params.username}]},
+            {$and:[{from: Meteor.user().username},{to:toUser}]},
+            {$and:[{to: Meteor.user().username},{from:toUser}]},
 
         ]}).count();
         if(count  > 0) {
             chat = Chat.find({
                 $or:[
-                    {$and:[{from: Meteor.user().username},{to:Router.current().params.username}]},
-                    {$and:[{to: Meteor.user().username},{from:Router.current().params.username}]},
+                    {$and:[{from: Meteor.user().username},{to:toUser}]},
+                    {$and:[{to: Meteor.user().username},{from:toUser}]},
 
                 ]}, {sort: {createdAt: 1}});
         }
@@ -33,9 +33,9 @@ Template.chat.helpers({
 Template.chat.events({
     'keyup #chatInput': function (event) {
         if(event.keyCode === 13) {
-            var msg = $('#chatInput').val();
+            let msg = $('#chatInput').val();
             if (msg) {
-                var chat = {};
+                let chat = {};
                 chat.from = Meteor.user().username;
                 chat.to = Router.current().params.username;
                 chat.message = msg;
@@ -50,9 +50,9 @@ Template.chat.events({
         }
     },
     'click .sendChat': function (event) {
-        var msg = $('#chatInput').val();
+        let msg = $('#chatInput').val();
         if(msg) {
-            var chat = {};
+            let chat = {};
             chat.from = Meteor.user().username;
             chat.to = Router.current().params.username;
             chat.message = msg;

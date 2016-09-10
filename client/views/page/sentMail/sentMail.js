@@ -1,12 +1,11 @@
-var addMessageRowClass = function () {
+let addMessageRowClass = function () {
     return "messageRow";
 };
 
 Template.sentMail.helpers({
-
     mail: function(){
-        var mail = [];
-        var count = Mail.find({from: Meteor.user().username, isDraft : false}).count();
+        let mail = [];
+        let count = Mail.find({from: Meteor.user().username, isDraft : false}).count();
         if(count  > 0) {
             mail = Mail.find({
                 from: Meteor.user().username,
@@ -24,12 +23,12 @@ Template.sentMail.helpers({
                 {key: 'to', label: 'Sent To', sortable: false, cellClass:addMessageRowClass},
                 {key: 'subject', label: 'Subject', sortable: false,
                     fn: function(value, object){
-                        var html =  '<strong>' +  object.subject + '</strong> - ' + UI._globalHelpers['textTruncate'](object.message, object.subject);
+                        let html =  '<strong>' +  object.subject + '</strong> - ' + UI._globalHelpers['textTruncate'](object.message, object.subject);
                         return new Spacebars.SafeString(html);
                     },
                     cellClass:addMessageRowClass},
                 {key: 'createdAt', label: 'Sent Date', headerClass :'dateColumn', fn: function(value){
-                    var html = '<div>' + UI._globalHelpers['formatDate'](value)+ '</div>';
+                    let html = '<div>' + UI._globalHelpers['formatDate'](value)+ '</div>';
                     return new Spacebars.SafeString(html);
                 },
                     sortable: false, cellClass:addMessageRowClass}
@@ -43,7 +42,6 @@ Template.sentMail.events({
         if(event.target.className === "messageRow") {
             Router.go('inbox/:username/:_id', {username: this.username, _id: this._id});
         }
-    },
-
+    }
 });
 

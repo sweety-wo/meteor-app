@@ -1,12 +1,8 @@
-Template.login.helpers({
-
-});
-
 Template.login.events({
   'submit form': function(event) {
     event.preventDefault();
-    var emailVar = event.target.loginEmail.value;
-    var passwordVar = event.target.loginPassword.value;
+    let emailVar = event.target.loginEmail.value;
+    let passwordVar = event.target.loginPassword.value;
     if(emailVar && passwordVar) {
       Meteor.loginWithPassword(emailVar, passwordVar, function (err) {
         if (err) {
@@ -14,8 +10,8 @@ Template.login.events({
             toastr.error('Login failed: ' + err.reason);
             Router.go('signUp');
           } else if (err.reason.indexOf('Please enter username') > -1) {
-            var id = err.reason.replace('Please enter username ', '');
-            var user = Meteor.users.findOne({_id: id});
+            let id = err.reason.replace('Please enter username ', '');
+            let user = Meteor.users.findOne({_id: id});
           } else {
             toastr.error('Login failed: ' + err.reason);
           }
@@ -27,5 +23,5 @@ Template.login.events({
     }else{
       toastr.error("Please enter all information")
     }
-  },
+  }
 });
