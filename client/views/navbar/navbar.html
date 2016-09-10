@@ -1,23 +1,22 @@
 <template name="navbar">
-
-        <nav class="navbar navbar-default navbar-fixed-top nav-header" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle m-l-10 pull-left" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <div>
-                    <a class="navbar-brand m-t-5 app-title" href="#">MyApp</a>
-                </div>
+    <nav class="navbar navbar-default navbar-fixed-top nav-header" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle m-l-10 pull-left" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div>
+                <a class="navbar-brand m-t-5 app-title" href="#">MyApp</a>
             </div>
-            <div class="nav navbar-nav navbar-right">
-                <a href="#" class="navbar-brand m-r-30 userLogout">
-                    <span class="glyphicon glyphicon-log-out"></span> Logout</a>
-            </div>
-            {{#if currentUser}}
+        </div>
+        <div class="nav navbar-nav navbar-right">
+            <a href="#" class="navbar-brand m-r-30 userLogout">
+                <span class="glyphicon glyphicon-log-out"></span> Logout</a>
+        </div>
+        {{#if currentUser}}
             <div class="nav navbar-nav navbar-right">
                 <div class="navbar-brand m-t-2">
                     {{#if currentUser.username}}
@@ -25,41 +24,41 @@
                     {{/if}}
                 </div>
             </div>
-            {{/if}}
+        {{/if}}
 
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav text-left">
-                    <li>
-                        <a href="{{pathFor route='newMessage'}}">
-                            <i class="glyphicon glyphicon-edit"></i><span class="m-l-10">New Message</span></a>
-                    </li>
-                    <li class="{{#if isInbox}}active{{/if}}">
-                        <a href="{{pathFor route='inbox'}}">
-                            <i class="glyphicon glyphicon-envelope"></i><span class="m-l-10">Inbox</span></a>
-                    </li>
-                    <li>
-                        <a href="{{pathFor route='sentMail'}}">
-                            <i class="glyphicon glyphicon-check"></i><span class="m-l-10">Sent Mail</span></a>
-                    </li>
-                    <li>
-                        <a href="{{pathFor route='drafts'}}">
-                            <i class="glyphicon glyphicon-file"></i><span class="m-l-10">Drafts</span></a>
-                    </li>
-                    <li>
-                        <hr class="m-l-15">
-                        <div class="friendListHeader">My friend list</div>
-                        <div class="form-group searchTextbox">
-                            {{> inputAutocomplete settings=searchSettings id="searchUser" class="form-control" placeholder="Search"}}
-                        </div>
-                        <div class="friendList">
-                            {{#each friends}}
-                                <div class="friend">{{username}}</div>
-                            {{/each}}
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav text-left">
+                <li class="{{#if isInbox 'newMessage'}}active{{/if}}">
+                    <a href="{{pathFor route='newMessage'}}">
+                        <i class="glyphicon glyphicon-edit"></i><span class="m-l-10">New Message</span></a>
+                </li>
+                <li class="{{#if isInbox 'inbox'}}active{{/if}}">
+                    <a href="{{pathFor route='inbox'}}">
+                        <i class="glyphicon glyphicon-envelope"></i><span class="m-l-10">Inbox</span></a>
+                </li>
+                <li class="{{#if isInbox 'sentMail'}}active{{/if}}">
+                    <a href="{{pathFor route='sentMail'}}">
+                        <i class="glyphicon glyphicon-check"></i><span class="m-l-10">Sent Mail</span></a>
+                </li>
+                <li class="{{#if isInbox 'drafts'}}active{{/if}}">
+                    <a href="{{pathFor route='drafts'}}">
+                        <i class="glyphicon glyphicon-file"></i><span class="m-l-10">Drafts</span></a>
+                </li>
+                <li>
+                    <hr class="m-l-15">
+                    <div class="friendListHeader">My friend list</div>
+                    <div class="form-group searchTextbox">
+                        {{> inputAutocomplete settings=searchSettings id="searchUser" class="form-control" placeholder="Search"}}
+                    </div>
+                    <div class="friendList">
+                        {{#each friends}}
+                            <div class="friend">{{username}}</div>
+                        {{/each}}
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
 </template>

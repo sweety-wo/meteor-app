@@ -15,8 +15,8 @@ Template.navbar.onCreated(function() {
 });
 
 Template.navbar.helpers({
-    isInbox: function () {
-        if(Iron.Location.get().path.indexOf('inbox') > -1){
+    isInbox: function (path) {
+        if(Iron.Location.get().path.indexOf(path) > -1){
             return true;
         }else {
             return false;
