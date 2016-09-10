@@ -5,7 +5,7 @@ Router.configure({
 OnBeforeActions = {
 	loginRequired: function(pause) {
 		if (!Meteor.userId()) {
-			this.redirect('/');
+			this.redirect('login');
 		}else {
 			this.next();
 		}
@@ -19,11 +19,13 @@ OnBeforeActions = {
 		}
 	}
 };
+
 Router.onBeforeAction(OnBeforeActions.loginRequired, {
 	only: ['inbox', 'drafts','sentMail','newMessage']
 });
+
 Router.onBeforeAction(OnBeforeActions.loginNotRequired, {
-	only: ['/', 'signUp']
+	only: ['login', 'signUp']
 });
 
 Router.route('signUp', function () {
@@ -74,6 +76,7 @@ Router.route('newMessage', function () {
 });
 
 Router.route('chat/:username', function () {
+	name: "chat",
 	this.render('chat',{
 		to: "main",
 		data: function() {
@@ -84,7 +87,7 @@ Router.route('chat/:username', function () {
 	});
 });
 
-Router.route('/', function () {
+Router.route('login', function () {
 	name: "login",
 	this.render('login',{
 		to: "main"
@@ -93,7 +96,7 @@ Router.route('/', function () {
 
 Router.route('/(.*)', {
 	action: function() {
-		Router.go('/');
+		Router.go('inbox');
 	}
 });
 
