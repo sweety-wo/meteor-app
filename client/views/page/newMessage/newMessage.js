@@ -83,6 +83,15 @@ Template.newMessage.events({
         $('#msgTo').val('');
         $('#subject').val('');
         $('#message').val('');
+    },
+    'submit form': function(event) {
+        event.preventDefault();
+        let msgTo = event.target.msgTo.value;
+        let subject = event.target.newSubject.value;
+        let message = event.target.newMsg.value;
+        if(!msgTo && !subject && !message) {
+            toastr.error('Please enter all information');
+        }
     }
 
 });
