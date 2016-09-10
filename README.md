@@ -1,5 +1,5 @@
-REQUIRE
+#REQUIRE
 Meteor Installed
 
-Run
-# meteor
+#Run
+meteor
