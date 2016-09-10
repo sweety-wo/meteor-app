@@ -2,6 +2,7 @@ Router.configure({
   layoutTemplate: 'layout',
   loadingTemplate: 'loading'
 });
+
 OnBeforeActions = {
 	loginRequired: function(pause) {
 		if (!Meteor.userId()) {
@@ -99,14 +100,3 @@ Router.route('/(.*)', {
 		Router.go('inbox');
 	}
 });
-
-/*
-MainController = RouteController.extend({
-  action: function() {
-  	this.render('home', {
-	    data: function () {
-	      return { posts: ['post red', 'post blue'] }
-	    }
-  	});
-  }
-});*/

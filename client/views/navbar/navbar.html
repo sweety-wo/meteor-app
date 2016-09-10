@@ -10,16 +10,16 @@
                     <span class="icon-bar"></span>
                 </button>
                 <div>
-                    <a class="navbar-brand m-t-5 white-color app-title" href="#">MyApp</a>
+                    <a class="navbar-brand m-t-5 app-title" href="#">MyApp</a>
                 </div>
             </div>
             <div class="nav navbar-nav navbar-right">
-                <a href="#" class="navbar-brand m-r-30 white-color userLogout">
+                <a href="#" class="navbar-brand m-r-30 userLogout">
                     <span class="glyphicon glyphicon-log-out"></span> Logout</a>
             </div>
             {{#if currentUser}}
             <div class="nav navbar-nav navbar-right">
-                <div class="navbar-brand white-color m-t-2">
+                <div class="navbar-brand m-t-2">
                     {{#if currentUser.username}}
                         {{currentUser.username}}
                     {{/if}}
