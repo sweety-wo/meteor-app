@@ -7,6 +7,10 @@
     .navbar-ex1-collapse{
         background-color: #80cde5;
     }
+
+    .chatParent{
+        width: calc(100% - 10px) !important;
+    }
 }
 
 @media(min-width:768px) {

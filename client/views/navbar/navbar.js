@@ -1,28 +1,17 @@
-var isUserExist = function (array, user) {
-    var isExist = false
-    for(var i = 0; i < array.length; i++){
-        if(user === array[i].username){
-            isExist = true;
-            return isExist;
-        }
-    }
-    return isExist;
-};
-
+"use strict"
 Template.navbar.onCreated(function() {
     this.existingFriend = new ReactiveVar();
     this.friendList = new ReactiveVar();
 });
 
 Template.navbar.helpers({
-    isInbox: function (path) {
+    isActive: function (path) {
         if(Iron.Location.get().path.indexOf(path) > -1){
             return true;
         }else {
             return false;
         }
     },
-
     friends: function(){
         var friend = 0;
         if(Meteor.user()){
@@ -80,7 +69,7 @@ Template.navbar.events({
     'click .userLogout': function (event) {
         event.preventDefault();
         Meteor.logout();
-        Router.go('/');
+        Router.go('login');
     },
     'click .friend': function (event) {
         event.preventDefault();
@@ -125,3 +114,13 @@ Template.navbar.events({
     }
 });
 
+var isUserExist = function (array, user) {
+    var isExist = false;
+    for(var i = 0; i < array.length; i++){
+        if(user === array[i].username){
+            isExist = true;
+            return isExist;
+        }
+    }
+    return isExist;
+};
