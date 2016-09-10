@@ -8,7 +8,6 @@
 </body>
 
 <template name="layout">
-
     {{#if currentUser }}
         <div class="wrapper">
             {{> navbar}}
@@ -19,5 +18,4 @@
             {{> yield "main"}}
         </div>
     {{/if}}
-
 </template>

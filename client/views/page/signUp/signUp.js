@@ -11,9 +11,9 @@ Template.signUp.helpers({
 Template.signUp.events({
     'submit form': function(event) {
         event.preventDefault();
-        var userName = event.target.userName.value;
-        var emailVar = event.target.registerEmail.value;
-        var passwordVar = event.target.registerPassword.value;
+        let userName = event.target.userName.value;
+        let emailVar = event.target.registerEmail.value;
+        let passwordVar = event.target.registerPassword.value;
         if(userName && emailVar && passwordVar ) {
             if (!Template.instance().userExists.get()) {
                 Accounts.createUser({
@@ -39,7 +39,7 @@ Template.signUp.events({
     },
     'blur .username': function(event, template){
         if(!$('.username').hasClass("error")) {
-            var userExists = !!Meteor.users.findOne({
+            let userExists = !!Meteor.users.findOne({
                 username: event.target.value
             });
             template.userExists.set(userExists);

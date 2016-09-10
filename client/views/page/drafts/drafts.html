@@ -1,9 +1,9 @@
 <template name="drafts">
-        <div id="pageWrapper">
-            {{#if mail}}
-                {{> reactiveTable settings=setting collection=mail multiColumnSort=false}}
-            {{else}}
-                <div class="notFoundMessage">No messages found...</div>
-            {{/if}}
-        </div>
+    <div id="pageWrapper">
+        {{#if mail}}
+            {{> reactiveTable settings=setting collection=mail multiColumnSort=false}}
+        {{else}}
+            <div class="notFoundMessage">No messages found...</div>
+        {{/if}}
+    </div>
 </template>

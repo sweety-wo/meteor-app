@@ -4,33 +4,20 @@
             <div class="col-md-12 chatParent">
                 <ul class="chat">
                     {{#each chat}}
-                    <li class="left clearfix">
-                        <div class="chat-body clearfix">
-                            <div class="header">
-                                <strong class="primary-font">{{from}}</strong>
-                                <small class="pull-right text-muted">
-                                    <span class="glyphicon glyphicon-time"></span>12 mins ago
-                                </small>
+                        <li class="left clearfix">
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <strong class="primary-font">{{from}}</strong>
+                                    <small class="pull-right text-muted">
+                                        <span class="glyphicon glyphicon-time"></span>12 mins ago
+                                    </small>
+                                </div>
+                                <p>
+                                    {{message}}
+                                </p>
                             </div>
-                            <p>
-                                {{message}}
-                            </p>
-                        </div>
-                    </li>
+                        </li>
                     {{/each}}
-                    <!--<li class="right clearfix">-->
-                        <!--<div class="chat-body clearfix">-->
-                            <!--<div class="header">-->
-                                <!--<small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins-->
-                                    <!--ago-->
-                                <!--</small>-->
-                                <!--<strong class="pull-right primary-font">Jack Sparrow</strong>-->
-                            <!--</div>-->
-                            <!--<p>-->
-                                <!--I'll go through a few for you, then provide a diagram with others at the end of the session. Then we can follow up later to see how they are working out for you!-->
-                            <!--</p>-->
-                        <!--</div>-->
-                    <!--</li>-->
                 </ul>
             </div>
         {{else}}
