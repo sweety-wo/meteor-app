@@ -27,7 +27,7 @@ Template.inbox.helpers({
                     },
                     cellClass:addMessageRowClass},
                 {key: 'createdAt', label: 'Received Date' ,headerClass :'dateColumn', fn: function(value){
-                    let html = '<div>' + UI._globalHelpers['formatDate'](value)+ '</div>'
+                    let html = '<div>' + UI._globalHelpers['formatDate'](value)+ '</div>';
                     return new Spacebars.SafeString(html);
                 },
                     sortable: false, cellClass:addMessageRowClass}
