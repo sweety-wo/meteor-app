@@ -13,15 +13,14 @@ Template.chat.helpers({
         let count = Chat.find({
             $or:[
             {$and:[{from: Meteor.user().username},{to:toUser}]},
-            {$and:[{to: Meteor.user().username},{from:toUser}]},
+            {$and:[{to: Meteor.user().username},{from:toUser}]}
 
         ]}).count();
         if(count  > 0) {
             chat = Chat.find({
                 $or:[
                     {$and:[{from: Meteor.user().username},{to:toUser}]},
-                    {$and:[{to: Meteor.user().username},{from:toUser}]},
-
+                    {$and:[{to: Meteor.user().username},{from:toUser}]}
                 ]}, {sort: {createdAt: 1}});
         }
         var objDiv = document.getElementsByClassName('chatParent');
