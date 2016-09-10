@@ -1,17 +1,17 @@
-.outline-none{
-  outline: none;
-}
-
-.app-title{
-  font-size: 30px;
-}
-
 html{
   overflow: hidden;
 }
 
 div{
   cursor: default;
+}
+
+.outline-none{
+  outline: none;
+}
+
+.app-title{
+  font-size: 30px;
 }
 
 .m-0{
