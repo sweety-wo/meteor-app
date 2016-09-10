@@ -32,6 +32,10 @@ hr{
 /* END : Common CSS */
 
 /* START: Global CSS*/
+.display-inline-block{
+  display: inline-block;
+}
+
 .m-0{
   margin: 0 !important;
 }

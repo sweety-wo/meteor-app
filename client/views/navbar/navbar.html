@@ -12,19 +12,6 @@
                 <a class="navbar-brand m-t-5 app-title" href="#">MyApp</a>
             </div>
         </div>
-        <div class="nav navbar-nav navbar-right">
-            <a href="#" class="navbar-brand m-r-30 userLogout">
-                <span class="glyphicon glyphicon-log-out"></span> Logout</a>
-        </div>
-        {{#if currentUser}}
-            <div class="nav navbar-nav navbar-right">
-                <div class="navbar-brand m-t-2">
-                    {{#if currentUser.username}}
-                        {{currentUser.username}}
-                    {{/if}}
-                </div>
-            </div>
-        {{/if}}
 
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -56,6 +43,21 @@
                             <div class="friend">{{username}}</div>
                         {{/each}}
                     </div>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right display-inline-block">
+                <li>
+                    {{#if currentUser}}
+                    <div class="navbar-brand m-t-2">
+                        {{#if currentUser.username}}
+                            {{currentUser.username}}
+                        {{/if}}
+                    </div>
+                {{/if}}
+                </li>
+                <li>
+                    <a href="#" class="navbar-brand m-r-30 userLogout">
+                        <span class="glyphicon glyphicon-log-out"></span> Logout</a>
                 </li>
             </ul>
         </div>
